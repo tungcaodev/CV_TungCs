@@ -8,6 +8,10 @@
   ],
   "routes": [
     {
+      "src": "/",
+      "dest": "/cv_TungCs_en.html"
+    },
+    {
       "src": "/(.*)",
       "dest": "/$1"
     }
