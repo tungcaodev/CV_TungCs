@@ -4,12 +4,20 @@
     {
       "src": "*.html",
       "use": "@vercel/static"
+    },
+    {
+      "src": "*.{jpg,png,gif,ico}",
+      "use": "@vercel/static"
     }
   ],
   "routes": [
     {
       "src": "/",
       "dest": "/cv_TungCs_en.html"
+    },
+    {
+      "src": "/avt.jpg",
+      "dest": "/avt.jpg"
     },
     {
       "src": "/(.*)",
