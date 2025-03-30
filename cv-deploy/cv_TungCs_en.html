@@ -5,145 +5,244 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cao Son Tung - Frontend Developer</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <style>
         :root {
-            --primary-color: #3498db;
-            --secondary-color: #2c3e50;
-            --text-color: #333;
-            --light-bg: #f8f9fa;
-            --border-color: #e9ecef;
+            --primary-color: #2563eb;
+            --primary-dark: #1d4ed8;
+            --secondary-color: #1e293b;
+            --text-color: #334155;
+            --light-bg: #f8fafc;
+            --border-color: #e2e8f0;
+            --accent-color: #3b82f6;
+            --success-color: #22c55e;
+            --warning-color: #f59e0b;
         }
 
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-family: 'Inter', sans-serif;
         }
 
         body {
-            line-height: 1.6;
+            line-height: 1.7;
             color: var(--text-color);
             background-color: #fff;
             padding: 2rem;
             max-width: 1200px;
             margin: 0 auto;
+            background: linear-gradient(135deg, #f8fafc 0%, #ffffff 100%);
         }
 
         .header {
             display: flex;
-            align-items: center;
-            gap: 2rem;
-            background-color: var(--light-bg);
-            padding: 2rem;
-            border-radius: 1rem;
+            align-items: flex-start;
+            gap: 3rem;
+            background: #ffffff;
+            padding: 3rem;
+            border-radius: 1.5rem;
             margin-bottom: 2rem;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            box-shadow: 0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1);
+            position: relative;
+            overflow: hidden;
+            border: 1px solid var(--border-color);
+        }
+
+        .header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, var(--primary-color), var(--accent-color));
         }
 
         .profile-image {
-            width: 120px;
-            height: 120px;
+            width: 220px;
+            height: 220px;
             border-radius: 1rem;
             object-fit: cover;
-            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+            border: 4px solid #fff;
+            transition: all 0.3s ease;
+            position: relative;
+            background: #fff;
+        }
+
+        .profile-image::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            border-radius: 1rem;
+            border: 2px solid var(--primary-color);
+            opacity: 0.3;
+            transition: all 0.3s ease;
+        }
+
+        .profile-image:hover {
+            transform: scale(1.05);
+            box-shadow: 0 12px 24px -6px rgba(0, 0, 0, 0.15), 0 6px 12px -3px rgba(0, 0, 0, 0.1);
+        }
+
+        .profile-image:hover::after {
+            opacity: 0.5;
         }
 
         .contact-info {
             flex: 1;
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+            padding-top: 1rem;
         }
 
-        .contact-info p {
-            margin: 0.5rem 0;
-            font-size: 1.1rem;
-        }
-
-        .contact-info i {
-            width: 24px;
-            color: var(--primary-color);
+        .contact-info-header {
+            border-bottom: 1px solid var(--border-color);
+            padding-bottom: 1.5rem;
+            margin-bottom: 1.5rem;
         }
 
         h1 {
-            color: var(--secondary-color);
-            margin-bottom: 1rem;
-            font-size: 2.5rem;
+            color: #2563eb;
+            margin-bottom: 0.5rem;
+            font-size: 3.2rem;
+            font-weight: 700;
+            letter-spacing: -0.025em;
+        }
+
+        .job-title {
+            color: #64748b;
+            font-size: 1.5rem;
+            font-weight: 500;
+        }
+
+        .contact-details {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1.5rem;
+        }
+
+        .contact-details p {
+            margin: 0;
+            font-size: 1.1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            color: #475569;
+        }
+
+        .contact-details i {
+            color: #2563eb;
+            font-size: 1.25rem;
+            width: auto;
         }
 
         h2 {
             color: var(--secondary-color);
             border-bottom: 2px solid var(--primary-color);
-            padding-bottom: 0.5rem;
-            margin: 2rem 0 1rem;
-            font-size: 1.8rem;
+            padding-bottom: 0.8rem;
+            margin: 2.5rem 0 1.5rem;
+            font-size: 2rem;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        h2 i {
+            color: var(--primary-color);
         }
 
         h3 {
             color: var(--secondary-color);
             margin: 1.5rem 0 1rem;
-            font-size: 1.4rem;
+            font-size: 1.5rem;
+            font-weight: 600;
         }
 
         .section {
-            margin-bottom: 2rem;
+            margin-bottom: 3rem;
+            background: #fff;
+            padding: 2rem;
+            border-radius: 1rem;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
         }
 
         .brief-intro {
-            background-color: var(--light-bg);
-            padding: 1.5rem;
+            background: linear-gradient(135deg, var(--light-bg) 0%, #ffffff 100%);
+            padding: 1.8rem;
             border-left: 4px solid var(--primary-color);
             border-radius: 0 1rem 1rem 0;
-            margin: 1rem 0;
+            margin: 1.5rem 0;
+            font-size: 1.1rem;
+            line-height: 1.8;
         }
 
         .experience-item, .project-item {
-            margin-bottom: 1.5rem;
-            padding: 1rem;
+            margin-bottom: 2rem;
+            padding: 1.5rem;
             border: 1px solid var(--border-color);
-            border-radius: 0.5rem;
-            transition: transform 0.2s, box-shadow 0.2s;
-        }
-
-        .experience-item ul, .project-item ul {
-            list-style-position: inside;
-            padding-left: 0;
-            margin: 0.5rem 0;
-        }
-
-        .experience-item li, .project-item li {
-            margin: 0.5rem 0;
-            line-height: 1.5;
-            position: relative;
-            padding-left: 1.2rem;
-            list-style: none;
-        }
-
-        .experience-item li::before, .project-item li::before {
-            content: "•";
-            color: var(--primary-color);
-            position: absolute;
-            left: 0;
+            border-radius: 1rem;
+            transition: all 0.3s ease;
+            background: #fff;
         }
 
         .experience-item:hover, .project-item:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            transform: translateY(-3px);
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+        }
+
+        .experience-item ul, .project-item ul {
+            list-style: none;
+            padding-left: 0;
+            margin: 1rem 0;
+        }
+
+        .experience-item li, .project-item li {
+            margin: 0.8rem 0;
+            line-height: 1.6;
+            position: relative;
+            padding-left: 1.5rem;
+            font-size: 1.05rem;
+        }
+
+        .experience-item li::before, .project-item li::before {
+            content: "→";
+            color: var(--primary-color);
+            position: absolute;
+            left: 0;
+            font-weight: bold;
         }
 
         .skills-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 1rem;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
         }
 
         .skill-category {
-            background-color: var(--light-bg);
-            padding: 1rem;
-            border-radius: 0.5rem;
+            background: linear-gradient(135deg, var(--light-bg) 0%, #ffffff 100%);
+            padding: 1.5rem;
+            border-radius: 1rem;
+            transition: transform 0.3s ease;
+        }
+
+        .skill-category:hover {
+            transform: translateY(-2px);
         }
 
         .skill-category h3 {
             color: var(--primary-color);
-            margin-bottom: 0.5rem;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
         }
 
         .skill-list {
@@ -153,10 +252,11 @@
         }
 
         .skill-list li {
-            margin: 0.5rem 0;
-            padding-left: 1.2rem;
+            margin: 0.8rem 0;
+            padding-left: 1.5rem;
             position: relative;
-            line-height: 1.5;
+            line-height: 1.6;
+            font-size: 1.05rem;
         }
 
         .skill-list li::before {
@@ -164,6 +264,27 @@
             color: var(--primary-color);
             position: absolute;
             left: 0;
+            font-weight: bold;
+        }
+
+        .project-links {
+            margin-top: 1rem;
+            display: flex;
+            gap: 1rem;
+        }
+
+        .project-links a {
+            color: var(--primary-color);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        .project-links a:hover {
+            color: var(--primary-dark);
         }
 
         @media print {
@@ -172,7 +293,8 @@
                 background: white;
             }
 
-            .experience-item:hover, .project-item:hover {
+            .experience-item:hover, .project-item:hover,
+            .skill-category:hover {
                 transform: none;
                 box-shadow: none;
             }
@@ -184,6 +306,10 @@
             .profile-image {
                 box-shadow: none;
             }
+
+            .section {
+                box-shadow: none;
+            }
         }
 
         @media (max-width: 1200px) {
@@ -193,127 +319,86 @@
             }
 
             .skills-grid {
-                grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+                grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
             }
         }
 
         @media (max-width: 992px) {
-            body {
-                padding: 1rem;
+            .header {
+                padding: 2rem;
+                gap: 2rem;
+            }
+
+            .profile-image {
+                width: 180px;
+                height: 180px;
             }
 
             h1 {
-                font-size: 2rem;
+                font-size: 2.5rem;
             }
 
-            h2 {
-                font-size: 1.5rem;
+            .job-title {
+                font-size: 1.25rem;
             }
 
-            h3 {
-                font-size: 1.2rem;
-            }
-
-            .contact-info p {
-                font-size: 1rem;
-            }
-
-            .skills-grid {
-                grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-                gap: 0.8rem;
+            .contact-details {
+                grid-template-columns: 1fr;
             }
         }
 
         @media (max-width: 768px) {
             .header {
                 flex-direction: column;
+                align-items: center;
                 text-align: center;
-                padding: 1.5rem;
+                padding: 2rem;
             }
 
             .profile-image {
+                width: 160px;
+                height: 160px;
                 margin-bottom: 1rem;
-                width: 100px;
-                height: 100px;
             }
 
-            .contact-info i {
-                width: 20px;
+            .contact-info {
+                width: 100%;
+                padding-top: 0;
             }
 
-            .experience-item, .project-item {
-                padding: 0.8rem;
+            .contact-details {
+                grid-template-columns: repeat(2, 1fr);
             }
 
-            .brief-intro {
-                padding: 1rem;
-            }
-
-            .skills-grid {
-                grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-                gap: 0.6rem;
-            }
-
-            .skill-category {
-                padding: 0.8rem;
+            .contact-details p {
+                justify-content: center;
             }
         }
 
         @media (max-width: 576px) {
-            body {
-                padding: 0.8rem;
+            .header {
+                padding: 1.5rem;
             }
 
-            .header {
-                padding: 1rem;
-                margin-bottom: 1.5rem;
+            .profile-image {
+                width: 140px;
+                height: 140px;
             }
 
             h1 {
-                font-size: 1.8rem;
+                font-size: 2rem;
             }
 
-            h2 {
-                font-size: 1.3rem;
-                margin: 1.5rem 0 0.8rem;
-            }
-
-            h3 {
+            .job-title {
                 font-size: 1.1rem;
-                margin: 1rem 0 0.8rem;
             }
 
-            .contact-info p {
-                font-size: 0.9rem;
-            }
-
-            .brief-intro {
-                font-size: 0.9rem;
-                padding: 0.8rem;
-            }
-
-            .experience-item, .project-item {
-                padding: 0.6rem;
-                margin-bottom: 1rem;
-            }
-
-            .experience-item li, .project-item li {
-                font-size: 0.9rem;
-                padding-left: 1rem;
-            }
-
-            .skills-grid {
+            .contact-details {
                 grid-template-columns: 1fr;
-                gap: 0.5rem;
             }
 
-            .skill-category {
-                padding: 0.6rem;
-            }
-
-            .skill-list li {
-                font-size: 0.9rem;
-                padding-left: 1rem;
+            .contact-details p {
+                font-size: 1rem;
             }
         }
     </style>
@@ -322,11 +407,17 @@
     <div class="header">
         <img src="avt.jpg" alt="Cao Son Tung" class="profile-image">
         <div class="contact-info">
-            <h1>Cao Son Tung</h1>
-            <p><i class="fas fa-birthday-cake"></i> Birthday: 24/09/1995</p>
-            <p><i class="fas fa-map-marker-alt"></i> Address: Ha Noi, Viet Nam</p>
-            <p><i class="fas fa-phone"></i> Phone: (484) 832 753 333</p>
-            <p><i class="fas fa-envelope"></i> Email: tungcao.dev@gmail.com</p>
+            <div class="contact-info-header">
+                <h1>Cao Son Tung</h1>
+                <div class="job-title">Senior Frontend Developer</div>
+            </div>
+            
+            <div class="contact-details">
+                <p><i class="fas fa-birthday-cake"></i> Birthday: 24/09/1995</p>
+                <p><i class="fas fa-map-marker-alt"></i> Address: Ha Noi, Viet Nam</p>
+                <p><i class="fas fa-phone"></i> Phone: (484) 832 753 333</p>
+                <p><i class="fas fa-envelope"></i> Email: tungcao.dev@gmail.com</p>
+            </div>
         </div>
     </div>
 
@@ -407,7 +498,11 @@
                 <li>Implemented SEO best practices including meta tags, structured data, and semantic HTML</li>
                 <li>Optimized website for search engines with proper heading hierarchy and content structure</li>
             </ul>
-            <p><strong>Website:</strong> <a href="https://cybercubevn.com">https://cybercubevn.com</a></p>
+            <div class="project-links">
+                <a href="https://cybercubevn.com" target="_blank">
+                    <i class="fas fa-external-link-alt"></i> Visit Website
+                </a>
+            </div>
         </div>
 
         <div class="project-item">
@@ -417,7 +512,11 @@
             <p><strong>Team Size:</strong> 5 members</p>
             <p><strong>Technologies:</strong> Electron, ReactJS, TypeScript, Supabase</p>
             <p><strong>Responsibilities:</strong> Built new add-ons like Gmail, Message, Skype, and Line using Electron</p>
-            <p><strong>Website:</strong> <a href="https://onechat.jp">https://onechat.jp</a></p>
+            <div class="project-links">
+                <a href="https://onechat.jp" target="_blank">
+                    <i class="fas fa-external-link-alt"></i> Visit Website
+                </a>
+            </div>
         </div>
 
         <div class="project-item">
@@ -501,7 +600,7 @@
     </div>
 
     <div class="section" style="text-align: center; margin-top: 3rem;">
-        <p style="font-style: italic; font-size: 1.2rem;">Looking forward to hearing from you - Cao Son Tung</p>
+        <p style="font-style: italic; font-size: 1.2rem; color: var(--primary-color);">Looking forward to hearing from you - Cao Son Tung</p>
     </div>
 </body>
 </html> 
